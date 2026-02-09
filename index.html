@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Birthday Daddy ❤️</title>
+  <title>Happy Birthday Daddy 🫶🏼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body bgcolor="#fff2cc" align="center">
 
-  <h1>🎉 Happy Birthday Daddy ❤️ 🎉</h1>
+  <h1>
+    Happy Birthday Daddy 🫶🏼
+  </h1>
 
   <p>
     Thank you for everything you do for me.<br>
-    I love you always 💙
+    I love you always ❤️
   </p>
 
-  <br><br>
+  <br>
 
-  <button onclick="playVideo()" style="font-size:18px; padding:10px 20px;">
-    ▶ Click to Play Birthday Video
-  </button>
+  <a href="https://youtu.be/XXXXXXXXXXX" target="_blank">
+    <button style="font-size:18px; padding:12px 25px;">
+      ▶ Click to Watch the Birthday Video
+    </button>
+  </a>
 
-  <br><br>
-
-  <video id="birthdayVideo" width="300" controls style="display:none;">
-    <source src="birthday-video.mp4" type="video/mp4">
-    Your browser does not support the video.
-  </video>
+  <!-- Floating Hearts -->
+  <div id="hearts"></div>
 
   <script>
-    function playVideo() {
-      var video = document.getElementById("birthdayVideo");
-      video.style.display = "block";
-      video.play();
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.innerHTML = "❤️";
+      heart.style.position = "fixed";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.bottom = "0px";
+      heart.style.fontSize = (20 + Math.random() * 20) + "px";
+      heart.style.animation = "floatUp 4s linear";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
     }
+
+    setInterval(createHeart, 400);
+
+    const style = document.createElement("style");
+    style.innerHTML = `
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 
 </body>
